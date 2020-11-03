@@ -21,8 +21,9 @@ jobs:
       - name: Checkout master
         uses: actions/checkout@v2
 
-      - name: Install flake8
+      - name: Install dependencies
         run: pip install flake8
+        run: pip install .
 
       - name: Run flake8
         uses: julianwachholz/flake8-action@v1.1.0
