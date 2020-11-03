@@ -2,6 +2,11 @@ name: Run tests and linting checks
 on:
   pull_request:
     types: [assigned, opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Why are you running the pipeline manually?"
+        required: true
 
 jobs:
   build:
@@ -16,13 +21,14 @@ jobs:
       - name: Checkout master
         uses: actions/checkout@v2
 
-      - name: Install flake8
-        run: pip install flake8
+      - name: Install dependencies
+        run: |
+          pip install flake8
+          pip install .
 
       - name: Run flake8
         uses: julianwachholz/flake8-action@v1.1.0
         with:
-          checkName: "build"
-          path: spark
+          checkName: 'build'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
