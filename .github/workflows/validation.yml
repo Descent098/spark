@@ -29,4 +29,3 @@ jobs:
         with:
           python-root-list: "spark"
           use-flake8: true
-          extra-flake8-options: "--config .flake8""
