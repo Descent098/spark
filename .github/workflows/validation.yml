@@ -25,7 +25,7 @@ jobs:
         run: pip install flake8
 
       - name: Run flake8
-        uses: suo/flake8-github-action@v1
+        uses: julianwachholz/flake8-action@v1.1.0
         with:
           checkName: 'build'
         env:
