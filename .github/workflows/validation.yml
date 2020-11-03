@@ -2,6 +2,11 @@ name: Run tests and linting checks
 on:
   pull_request:
     types: [assigned, opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Why are you running the pipeline manually?"
+        required: true
 
 jobs:
   build:
